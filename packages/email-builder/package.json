@@ -1,0 +1,49 @@
+{
+  "name": "@core-builder/email-builder",
+  "version": "0.0.8",
+  "description": "React component to render email messages",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "npx tsc",
+    "dev": "tsc --watch"
+  },
+  "author": "skyline",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.55",
+    "@repo/typescript-config": "workspace:*",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "peerDependencies": {
+    "react": "^16 || ^17 || ^18",
+    "react-dom": "^16 || ^17 || ^18",
+    "zod": "^1 || ^2 || ^3"
+  },
+  "dependencies": {
+    "@core-builder/block-avatar": "workspace:*",
+    "@core-builder/block-button": "workspace:*",
+    "@core-builder/block-columns-container": "workspace:*",
+    "@core-builder/block-container": "workspace:*",
+    "@core-builder/block-divider": "workspace:*",
+    "@core-builder/block-heading": "workspace:*",
+    "@core-builder/block-html": "workspace:*",
+    "@core-builder/block-image": "workspace:*",
+    "@core-builder/block-spacer": "workspace:*",
+    "@core-builder/block-text": "workspace:*",
+    "@core-builder/document-core": "workspace:*"
+  }
+}
