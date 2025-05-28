@@ -1,5 +1,5 @@
 {
-  "name": "editor-sample",
+  "name": "layout-builder",
   "version": "0.0.1",
   "scripts": {
     "dev": "webpack serve --mode development",
