@@ -3,6 +3,7 @@ import React from "react";
 import {
   ArrowDownwardOutlined,
   ArrowUpwardOutlined,
+  ControlCameraOutlined,
   DeleteOutlined,
 } from "@mui/icons-material";
 import { IconButton, Paper, Stack, SxProps, Tooltip } from "@mui/material";
@@ -14,6 +15,7 @@ import {
   useDocument,
 } from "../../../editor/EditorContext";
 import { ColumnsContainerProps } from "../../ColumnsContainer/ColumnsContainerPropsSchema";
+import { beginDrag } from "../../../editor/DragDrop";
 
 const sx: SxProps = {
   position: "absolute",
@@ -100,8 +102,12 @@ export default function TuneMenu({ blockId }: Props) {
       const childrenIds = [...ids];
       if (
         typeof childrenIds[index] === "string" &&
-        ((direction === "up" && index > 0 && typeof childrenIds[index - 1] === "string") ||
-          (direction === "down" && index < childrenIds.length - 1 && typeof childrenIds[index + 1] === "string"))
+        ((direction === "up" &&
+          index > 0 &&
+          typeof childrenIds[index - 1] === "string") ||
+          (direction === "down" &&
+            index < childrenIds.length - 1 &&
+            typeof childrenIds[index + 1] === "string"))
       ) {
         if (direction === "up" && index > 0) {
           [childrenIds[index], childrenIds[index - 1]] = [
@@ -168,9 +174,21 @@ export default function TuneMenu({ blockId }: Props) {
     setSelectedBlockId(blockId);
   };
 
+  const handleDragStart = () => {
+    beginDrag(blockId);
+  };
+
   return (
     <Paper sx={sx} onClick={(ev) => ev.stopPropagation()}>
       <Stack>
+        <Tooltip title="Drag to Move" placement="left-start">
+          <IconButton
+            onMouseDown={handleDragStart}
+            sx={{ color: "text.primary" }}
+          >
+            <ControlCameraOutlined fontSize="small" />
+          </IconButton>
+        </Tooltip>
         <Tooltip title="Move up" placement="left-start">
           <IconButton
             onClick={() => handleMoveClick("up")}

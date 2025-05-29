@@ -14,9 +14,16 @@ type TValue = {
 
   inspectorDrawerOpen: boolean;
   samplesDrawerOpen: boolean;
+
+  dragState: {
+    isDragging: boolean;
+    draggedBlockId: string | null;
+    dropTargetId: string | null;
+    dropPosition: "before" | "after" | "inside" | null;
+  };
 };
 
-const editorStateStore = create<TValue>(() => ({
+export const editorStateStore = create<TValue>(() => ({
   document: getConfiguration(window.location.hash),
   selectedBlockId: null,
   selectedSidebarTab: "styles",
@@ -25,6 +32,13 @@ const editorStateStore = create<TValue>(() => ({
 
   inspectorDrawerOpen: true,
   samplesDrawerOpen: true,
+
+  dragState: {
+    isDragging: false,
+    draggedBlockId: null,
+    dropTargetId: null,
+    dropPosition: null,
+  },
 }));
 
 export function useDocument() {
@@ -74,7 +88,7 @@ export function setSelectedBlockId(selectedBlockId: TValue["selectedBlockId"]) {
 }
 
 export function setSidebarTab(
-  selectedSidebarTab: TValue["selectedSidebarTab"],
+  selectedSidebarTab: TValue["selectedSidebarTab"]
 ) {
   return editorStateStore.setState({ selectedSidebarTab });
 }
@@ -108,7 +122,7 @@ export function toggleSamplesDrawerOpen() {
 }
 
 export function setSelectedScreenSize(
-  selectedScreenSize: TValue["selectedScreenSize"],
+  selectedScreenSize: TValue["selectedScreenSize"]
 ) {
   return editorStateStore.setState({ selectedScreenSize });
 }
