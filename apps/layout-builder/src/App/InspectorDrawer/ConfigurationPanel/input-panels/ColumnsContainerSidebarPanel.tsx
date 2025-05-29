@@ -51,11 +51,6 @@ export default function ColumnsContainerPanel({
       >
         <ToggleButton value="2">2</ToggleButton>
         <ToggleButton value="3">3</ToggleButton>
-        <ToggleButton value="4">4</ToggleButton>
-        <ToggleButton value="5">5</ToggleButton>
-        <ToggleButton value="6">6</ToggleButton>
-        <ToggleButton value="7">7</ToggleButton>
-        <ToggleButton value="8">8</ToggleButton>
       </RadioGroupInput>
       <ColumnWidthsInput
         defaultValue={data.props?.fixedWidths}

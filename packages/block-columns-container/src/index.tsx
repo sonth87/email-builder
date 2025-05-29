@@ -39,19 +39,7 @@ export const ColumnsContainerPropsSchema = z.object({
     .object({
       fixedWidths: FIXED_WIDTHS_SCHEMA,
       columnsCount: z
-        .union([
-          z.literal(2),
-          z.literal(3),
-          z.literal(4),
-          z.literal(5),
-          z.literal(6),
-          z.literal(7),
-          z.literal(8),
-          z.literal(9),
-          z.literal(10),
-          z.literal(11),
-          z.literal(12),
-        ])
+        .union([z.literal(2), z.literal(3)])
         .optional()
         .nullable(),
       columnsGap: z.number().optional().nullable(),
@@ -110,11 +98,6 @@ export function ColumnsContainer({
             <TableCell index={0} props={blockProps} columns={columns} />
             <TableCell index={1} props={blockProps} columns={columns} />
             <TableCell index={2} props={blockProps} columns={columns} />
-            <TableCell index={3} props={blockProps} columns={columns} />
-            <TableCell index={4} props={blockProps} columns={columns} />
-            <TableCell index={5} props={blockProps} columns={columns} />
-            <TableCell index={6} props={blockProps} columns={columns} />
-            <TableCell index={7} props={blockProps} columns={columns} />
           </tr>
         </tbody>
       </table>
@@ -125,7 +108,7 @@ export function ColumnsContainer({
 type Props = {
   props: {
     fixedWidths: z.infer<typeof FIXED_WIDTHS_SCHEMA>;
-    columnsCount: 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+    columnsCount: 2 | 3;
     columnsGap: number;
     contentAlignment: "top" | "middle" | "bottom";
   };

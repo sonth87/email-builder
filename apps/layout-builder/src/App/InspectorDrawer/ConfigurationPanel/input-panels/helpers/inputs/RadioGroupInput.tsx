@@ -24,11 +24,16 @@ export default function RadioGroupInput({
         value={value}
         size="small"
         onChange={(_, v: unknown) => {
-          if (typeof v !== "string") {
-            throw new Error("RadioGroupInput can only receive string values");
+          try {
+            if (typeof v !== "string") {
+              throw new Error("RadioGroupInput can only receive string values");
+            }
+
+            setValue(v);
+            onChange(v);
+          } catch (error) {
+            // ignore error
           }
-          setValue(v);
-          onChange(v);
         }}
       >
         {children}
