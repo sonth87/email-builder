@@ -2,7 +2,7 @@
   "name": "layout-builder",
   "version": "0.0.1",
   "scripts": {
-    "dev": "webpack serve --mode development",
+    "dev": "webpack serve --mode development --port 3333",
     "build": "webpack --mode production",
     "preview": "serve -s dist"
   },
