@@ -55,14 +55,14 @@ module.exports = (env, argv) => {
           type: 'asset/resource',
           generator: {
             filename: 'assets/images/[name].[hash][ext]',
-          }
+          },
         },
         {
           test: /\.(woff|woff2|eot|ttf|otf)$/i,
           type: 'asset/resource',
           generator: {
             filename: 'assets/fonts/[name].[hash][ext]',
-          }
+          },
         },
       ],
     },

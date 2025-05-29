@@ -115,11 +115,6 @@ export function ColumnsContainer({
             <TableCell index={5} props={blockProps} columns={columns} />
             <TableCell index={6} props={blockProps} columns={columns} />
             <TableCell index={7} props={blockProps} columns={columns} />
-            <TableCell index={8} props={blockProps} columns={columns} />
-            <TableCell index={9} props={blockProps} columns={columns} />
-            <TableCell index={10} props={blockProps} columns={columns} />
-            <TableCell index={11} props={blockProps} columns={columns} />
-            <TableCell index={12} props={blockProps} columns={columns} />
           </tr>
         </tbody>
       </table>
